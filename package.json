@@ -1,0 +1,29 @@
+{
+  "name": "trello-api",
+  "version": "1.0.0",
+  "description": "Api for trello clone app",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trongnhan19081994/trello-api.git"
+  },
+  "keywords": [],
+  "author": "trongnhandev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trongnhan19081994/trello-api/issues"
+  },
+  "homepage": "https://github.com/trongnhan19081994/trello-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.14.7",
+    "eslint": "^7.31.0"
+  }
+}
