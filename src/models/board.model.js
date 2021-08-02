@@ -1,5 +1,6 @@
 import Joi from 'joi'
 import { getDB } from '*/config/mongodb'
+import { ObjectId } from 'mongodb'
 
 //Define board collection
 const boardCollectionName = 'boards'
@@ -12,14 +13,14 @@ const boardCollectionSchema = Joi.object({
 })
 
 const validateSchema = async (data) => {
-    return await boardCollectionSchema.validateAsync(data, { abortEarly: false })
+    return await boardCollectionSchema.validateAsync(data, { abortEarly: false }) //abortEarly dùng để chạy hết các lỗi ở condition, nếu true thì khi bị lỗi ở đâu sẽ stop ở đó
 }
 
 const createNew = async (data) => {
     try {
         const value = await validateSchema(data)
         const result = await getDB().collection(boardCollectionName).insertOne(value)
-        return result.ops[0]
+        return result
     } catch (error) {
         throw new Error(error)
     }

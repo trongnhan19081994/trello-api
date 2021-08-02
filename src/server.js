@@ -2,6 +2,7 @@ import express from 'express'
 import { connectDB } from '*/config/mongodb'
 import { env } from '*/config/environtment'
 import { apiV1 } from '*/routes/v1'
+import { BoardModel } from '*/models/board.model'
 
 connectDB()
     .then(() => {
