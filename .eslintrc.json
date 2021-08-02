@@ -12,7 +12,8 @@
 	"parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
-    "allowImportExportEverywhere": true
+    "allowImportExportEverywhere": true,
+    "requireConfigFile": false //Fix lỗi import
 	},
 	"rules": {
     "no-console": 0,
@@ -22,7 +23,7 @@
     "no-multiple-empty-lines": 1,
     "space-before-blocks": ["error", "always"],
     "object-curly-spacing": [1, "always"],
-		"indent": ["warn", 2],
+		"indent": ["warn", 4],
     "linebreak-style": 0,
     "semi": [1, "never"],
 		"quotes": ["error", "single"],
