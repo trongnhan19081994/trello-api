@@ -34,7 +34,6 @@ const update = async (id, data) => {
             { $set: data },
             { upsert: true, returnNewDocument: true } //trả về bản ghi sau khi đã update
         )
-        console.log(result)
         return result.value
     } catch (error) {
         throw new Error(error)
