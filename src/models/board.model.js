@@ -34,7 +34,6 @@ const createNew = async (data) => {
  */
 const pushColumnOrder = async (boardId, columnId) => {
     try {
-        console.log(boardId, columnId)
         const result = await getDB().collection(boardCollectionName).findOneAndUpdate(
             { _id: boardId },
             { $push: { columnOrder: columnId } },

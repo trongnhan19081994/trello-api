@@ -12,7 +12,7 @@ const createNew = async (data) => {
 const getFullBoard = async (boardId) => {
     try {
         const board = await BoardModel.getFullBoard(boardId)
-
+        //console.log(board)
         //Add card to each column
         board.columns.forEach(column => {
             column.cards = board.cards.filter(c => c.columnId.toString() === column._id.toString())
