@@ -25,6 +25,7 @@
   "homepage": "https://github.com/trongnhan19081994/trello-api#readme",
   "dependencies": {
     "@babel/runtime": "^7.14.8",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "joi": "^17.4.1",
     "mongodb": "^4.0.1"
