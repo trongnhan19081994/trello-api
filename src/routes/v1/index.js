@@ -18,4 +18,4 @@ router.use('/columns', ColumnRoutes)
 
 router.use('/cards', CardRoutes)
 
-export const apiV1 = router;
+export const apiV1 = router
