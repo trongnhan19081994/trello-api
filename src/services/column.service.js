@@ -29,14 +29,14 @@ const update = async (id, data) => {
         if (updateData._id) delete updateData._id
         if (updateData.cards) delete updateData.cards
 
-        const updatedColum = await ColumnModel.update(id, updateData)
-        const resultUpdatedColum = await ColumnModel.getDataNewColumn(updatedColum._id)
-        if (resultUpdatedColum._destroy) {
+        const updatedColumn = await ColumnModel.update(id, updateData)
+        const resultUpdatedColumn = await ColumnModel.getDataNewColumn(updatedColumn._id)
+        if (resultUpdatedColumn._destroy) {
             //delete many cards in this column
-            CardModel.deleteMany(resultUpdatedColum.cardOrder)
+            CardModel.deleteMany(resultUpdatedColumn.cardOrder)
         }
 
-        return resultUpdatedColum
+        return resultUpdatedColumn
     } catch (error) {
         throw new Error(error)
     }
