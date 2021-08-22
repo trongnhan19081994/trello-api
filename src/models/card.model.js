@@ -61,10 +61,26 @@ const deleteMany = async (ids) => {
     }
 }
 
+const update = async (id, data) => {
+    try {
+        const updateData = { ...data }
+        if (data.boardId) updateData.boardId = ObjectId(data.boardId)
+        if (data.columnId) updateData.columnId = ObjectId(data.columnId)
+        const result = await getDB().collection(cardCollectionName).findOneAndUpdate(
+            { _id: ObjectId(id) },
+            { $set: updateData },
+            { upsert: true, returnNewDocument: true } //trả về bản ghi sau khi đã update
+        )
+        return result.value
+    } catch (error) {
+        throw new Error(error)
+    }
+}
 
 export const CardModel = {
     cardCollectionName,
     createNew,
     getDataNewCard,
-    deleteMany
+    deleteMany,
+    update
 }

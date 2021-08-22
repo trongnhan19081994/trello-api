@@ -78,4 +78,29 @@ const getFullBoard = async (boardId) => {
     }
 }
 
-export const BoardModel = { createNew, pushColumnOrder, getFullBoard }
+const getDataNewBoard = async (boardId) => {
+    try {
+        const result = await getDB().collection(boardCollectionName).findOne(
+            { _id: boardId }
+        )
+        return result
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
+const update = async (id, data) => {
+    try {
+        const updateData = { ...data }
+        const result = await getDB().collection(boardCollectionName).findOneAndUpdate(
+            { _id: ObjectId(id) },
+            { $set: updateData },
+            { upsert: true, returnNewDocument: true } //trả về bản ghi sau khi đã update
+        )
+        return result.value
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+
+export const BoardModel = { createNew, pushColumnOrder, getFullBoard, getDataNewBoard, update }
